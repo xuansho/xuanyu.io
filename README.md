@@ -1,7 +1,6 @@
 # xuanyu.io
 
-Personal blog built with Astro and the local Retypeset theme source from
-`~/Projects/astro-theme-retypeset`.
+Personal blog built with Astro and Retypeset.
 
 ## Development
 
@@ -49,5 +48,5 @@ pnpm update-theme
 ## Theme Updates
 
 This repository uses Retypeset as copied source, not as an npm package. To pull
-in upstream theme changes, compare against `~/Projects/astro-theme-retypeset`
-or run the included `pnpm update-theme` flow and resolve any local differences.
+in upstream theme changes, run the included `pnpm update-theme` flow and resolve
+any local differences.
