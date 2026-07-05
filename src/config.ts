@@ -68,48 +68,6 @@ export const themeConfig: ThemeConfig = {
   },
   // GLOBAL SETTINGS >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> END
 
-  // COMMENT SETTINGS >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> START
-  comment: {
-    // enable comment system
-    enabled: false, // true | false
-    // giscus
-    // https://giscus.app/
-    giscus: {
-      repo: '',
-      repoId: '',
-      category: '',
-      categoryId: '',
-      mapping: 'pathname',
-      strict: '0',
-      reactionsEnabled: '1',
-      emitMetadata: '0',
-      inputPosition: 'bottom',
-    },
-    // twikoo
-    // https://twikoo.js.org/
-    twikoo: {
-      envId: '',
-      // version: frontend version can be changed in package.json
-    },
-    // waline
-    // https://waline.js.org/en/
-    waline: {
-      // server url
-      serverURL: '',
-      // emoji url
-      emoji: [
-        'https://unpkg.com/@waline/emojis@1.2.0/tw-emoji',
-        // 'https://unpkg.com/@waline/emojis@1.2.0/bmoji',
-        // more emojis: https://waline.js.org/en/guide/features/emoji.html
-      ],
-      // gif search
-      search: false, // true | false
-      // image uploader
-      imageUploader: false, // true | false
-    },
-  },
-  // COMMENT SETTINGS >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> END
-
   // SEO SETTINGS >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> START
   seo: {
     // @twitter ID

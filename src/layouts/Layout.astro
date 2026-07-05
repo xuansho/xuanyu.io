@@ -11,7 +11,6 @@ import SoundEffect from '@/components/Widgets/SoundEffect.astro'
 import { themeConfig } from '@/config'
 import Head from '@/layouts/Head.astro'
 import { getPageInfo } from '@/utils/page'
-import '@/styles/comment.css'
 import '@/styles/extension.css'
 import '@/styles/font.css'
 import '@/styles/global.css'
@@ -28,9 +27,6 @@ interface Props {
 const { postTitle, postDescription, postSlug } = Astro.props
 const { isPost } = getPageInfo(Astro.url.pathname)
 const fontStyle = themeConfig.global.fontStyle === 'serif' ? 'font-serif' : 'font-sans'
-const MarginBottom = isPost && themeConfig.comment.enabled
-  ? 'mb-10' // Post page with comment
-  : 'mb-12' // Other pages without comment
 ---
 
 <html
@@ -49,7 +45,7 @@ const MarginBottom = isPost && themeConfig.comment.enabled
     >
       <Header />
       <Navbar />
-      <main class={MarginBottom}>
+      <main class="mb-12">
         <slot />
       </main>
       <Footer />

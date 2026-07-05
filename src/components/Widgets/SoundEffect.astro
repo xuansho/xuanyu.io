@@ -1,43 +1,19 @@
 <script>
 const soundTypes = {
   click: 'tap',
-  typing: 'type',
 } as const
 
 type SoundType = typeof soundTypes[keyof typeof soundTypes]
 
 const volumeSettings: Record<SoundType, number> = {
   [soundTypes.click]: 0.8,
-  [soundTypes.typing]: 0.4,
 }
 
 const clickTargets = [
   '#theme-toggle-button',
 ] as const
 
-const typingTargets = [
-  // Twikoo
-  '.el-input__inner',
-  '.el-textarea__inner',
-  // Waline
-  '#wl-nick',
-  '#wl-mail',
-  '#wl-link',
-  '#wl-edit',
-] as const
-
-const ignoredKeys = new Set([
-  'Shift',
-  'Control',
-  'Alt',
-  'Meta',
-  'Tab',
-  'Escape',
-  'CapsLock',
-])
-
 const clickSelector = clickTargets.join(',')
-const typingSelector = typingTargets.join(',')
 
 function isMobileDevice(): boolean {
   return window.matchMedia('(max-width: 1023px)').matches
@@ -53,7 +29,6 @@ class SoundEffectManager {
   private audioContext: AudioContext | null = null
   private audioBuffers: Record<SoundType, AudioBuffer[]> = {
     [soundTypes.click]: [],
-    [soundTypes.typing]: [],
   }
 
   private initPromise: Promise<void> | null = null
@@ -151,28 +126,5 @@ function handleGlobalClick(event: MouseEvent) {
   soundManager.playSound(soundTypes.click)
 }
 
-// Handle keyboard events for typing sounds
-function handleGlobalKeydown(event: KeyboardEvent) {
-  if (isMobileDevice()) {
-    return
-  }
-
-  if (event.ctrlKey || event.altKey || event.metaKey) {
-    return
-  }
-
-  if (ignoredKeys.has(event.key)) {
-    return
-  }
-
-  const target = event.target as Element | null
-  if (!target?.closest(typingSelector)) {
-    return
-  }
-
-  soundManager.playSound(soundTypes.typing)
-}
-
 document.addEventListener('click', handleGlobalClick)
-document.addEventListener('keydown', handleGlobalKeydown)
 </script>
