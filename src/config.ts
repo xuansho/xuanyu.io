@@ -9,8 +9,6 @@ export const themeConfig: ThemeConfig = {
     subtitle: '',
     // site description
     description: 'A personal, writing-first blog by hex.',
-    // use i18n title/subtitle/description from src/i18n/ui.ts instead of static ones above
-    i18nTitle: false, // true | false
     // author name
     author: 'hex',
     // site url
@@ -57,11 +55,6 @@ export const themeConfig: ThemeConfig = {
 
   // GLOBAL SETTINGS >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> START
   global: {
-    // default language
-    locale: 'en', // de | en | es | fr | ja | ko | pl | pt | ru | zh | zh-tw
-    // more languages
-    // not fill in the locale code above again, can be an empty array []
-    moreLocales: [], // ['de', 'en', 'es', 'fr', 'ja', 'ko', 'pl', 'pt', 'ru', 'zh', 'zh-tw']
     // post font style
     fontStyle: 'sans', // sans | serif
     // post date format
@@ -193,6 +186,3 @@ export const themeConfig: ThemeConfig = {
 }
 
 export const base = themeConfig.site.base === '/' ? '' : themeConfig.site.base.replace(/\/$/, '')
-export const defaultLocale = themeConfig.global.locale
-export const moreLocales = themeConfig.global.moreLocales
-export const allLocales = [defaultLocale, ...moreLocales]

@@ -31,8 +31,8 @@ The About page content lives in `src/content/about/about.md`.
 Theme and site settings are in `src/config.ts`.
 
 The current setup is single-language English, with comments and analytics
-disabled. Retypeset supports i18n, comments, RSS/Atom, sitemap, OpenGraph
-images, TOC, KaTeX, Mermaid, and theme color customization.
+disabled. It keeps RSS/Atom, sitemap, OpenGraph images, TOC, KaTeX, Mermaid,
+and theme color customization.
 
 ## Scripts
 

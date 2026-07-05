@@ -1,14 +1,10 @@
 ---
 import { themeConfig } from '@/config'
-import { ui } from '@/i18n/ui'
 import { getPageInfo } from '@/utils/page'
+import { getSitePath } from '@/utils/path'
 
-const { currentLang, getLocalizedPath, isPost } = getPageInfo(Astro.url.pathname)
-const { title, subtitle, i18nTitle } = themeConfig.site
-
-const currentUI = ui[currentLang as keyof typeof ui] ?? {}
-const headerTitle = i18nTitle ? currentUI.title : title
-const headerSubtitle = i18nTitle ? currentUI.subtitle : subtitle
+const { isPost } = getPageInfo(Astro.url.pathname)
+const { title: headerTitle, subtitle: headerSubtitle } = themeConfig.site
 
 const TitleTag = isPost ? 'h2' : 'h1'
 const SubtitleTag = isPost ? 'div' : 'h2'
@@ -33,12 +29,12 @@ const SubtitleTag = isPost ? 'div' : 'h2'
     <!-- Fix text cropping issues during view transition on iOS by adding a div tag -->
     <div
       class="box-content inline-block pr-1"
-      transition:name={`site-title-${currentLang}`}
+      transition:name="site-title"
       data-disable-theme-toggle-transition
     >
       <a
         id="site-title-link"
-        href={getLocalizedPath('/')}
+        href={getSitePath('/')}
       >
           {headerTitle}
       </a>

@@ -1,0 +1,17 @@
+---
+import { getCollection, render } from 'astro:content'
+import Layout from '@/layouts/Layout.astro'
+
+const allAboutEntries = await getCollection('about')
+const aboutEntry = allAboutEntries[0]
+const { Content } = aboutEntry ? await render(aboutEntry) : { Content: null }
+---
+
+<Layout>
+  <!-- Decorative Line -->
+  <div class="uno-decorative-line" />
+  <!-- About Page Content -->
+  <div class="heti">
+    {Content && <Content />}
+  </div>
+</Layout>

@@ -1,7 +1,5 @@
 import type { CollectionEntry } from 'astro:content'
-import type { Language } from '@/i18n/config'
 import MarkdownIt from 'markdown-it'
-import { defaultLocale } from '@/config'
 
 type ExcerptScene = 'list' | 'meta' | 'og' | 'feed'
 
@@ -34,13 +32,9 @@ const htmlEntityMap: Record<string, string> = {
   '&nbsp;': ' ',
 }
 
-// Creates a clean text excerpt with length limits by language and scene
-function getExcerpt(text: string, lang: Language, scene: ExcerptScene): string {
-  const isCJK = (lang: Language) => ['zh', 'zh-tw', 'ja', 'ko'].includes(lang)
-  const length = isCJK(lang)
-    ? excerptLengths[scene].cjk
-    : excerptLengths[scene].other
-
+// Creates a clean text excerpt with length limits by scene
+function getExcerpt(text: string, scene: ExcerptScene): string {
+  const length = excerptLengths[scene].other
   // Remove HTML tags
   let cleanText = text.replace(/<[^>]*>/g, '')
 
@@ -70,12 +64,10 @@ export function getPostDescription(
   post: CollectionEntry<'posts'>,
   scene: ExcerptScene,
 ): string {
-  const lang = (post.data.lang || defaultLocale) as Language
-
   if (post.data.description) {
     // Only truncate for og scene, return full description for other scenes
     return scene === 'og'
-      ? getExcerpt(post.data.description, lang, scene)
+      ? getExcerpt(post.data.description, scene)
       : post.data.description
   }
 
@@ -89,5 +81,5 @@ export function getPostDescription(
     .replace(/\n{2,}/g, '\n\n') // Normalize newlines
 
   const renderedContent = markdownParser.render(cleanContent)
-  return getExcerpt(renderedContent, lang, scene)
+  return getExcerpt(renderedContent, scene)
 }
