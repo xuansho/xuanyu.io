@@ -87,12 +87,6 @@ export const themeConfig: ThemeConfig = {
       // https://ziyuan.baidu.com
       baidu: '',
     },
-    // google analytics
-    // https://analytics.google.com
-    googleAnalyticsID: '',
-    // umami analytics
-    // https://cloud.umami.is
-    umamiAnalyticsID: '',
     // folo verification
     // https://folo.is/
     folo: {
@@ -131,14 +125,6 @@ export const themeConfig: ThemeConfig = {
     // image hosting url
     // optimize remote images and generate low-quality placeholders
     imageHostURL: '',
-    // custom google analytics js
-    // for users who proxy tracking scripts to a custom domain
-    // see https://gist.github.com/xiaopc/0602f06ca465d76bd9efd3dda9393738
-    customGoogleAnalyticsJS: '',
-    // custom umami analytics js
-    // for users who self-deploy umami or proxy tracking scripts to a custom domain
-    // see https://umami.is/docs/bypass-ad-blockers
-    customUmamiAnalyticsJS: '',
   },
   // PRELOAD SETTINGS >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> END
 }

@@ -30,9 +30,9 @@ The About page content lives in `src/content/about/about.md`.
 
 Theme and site settings are in `src/config.ts`.
 
-The current setup is single-language English, with analytics disabled and no
-bundled comment system. It keeps RSS/Atom, sitemap, OpenGraph images, TOC,
-KaTeX, Mermaid, and theme color customization.
+The current setup is single-language English and has no bundled comment system.
+It keeps RSS/Atom, sitemap, OpenGraph images, TOC, KaTeX, Mermaid, and theme
+color customization.
 
 ## Scripts
 

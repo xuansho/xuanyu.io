@@ -15,9 +15,8 @@ const { postTitle, postDescription, postSlug } = Astro.props
 const { title, subtitle, description, author, favicon } = themeConfig.site
 const { mode: defaultMode, light: { background: lightMode }, dark: { background: darkMode } } = themeConfig.color
 const { katex: katexEnabled, reduceMotion } = themeConfig.global
-const { verification = {}, twitterID = '', googleAnalyticsID = '', umamiAnalyticsID = '', apiflashKey = '' } = themeConfig.seo ?? {}
+const { verification = {}, twitterID = '', apiflashKey = '' } = themeConfig.seo ?? {}
 const { google = '', bing = '', yandex = '', baidu = '' } = verification
-const { customGoogleAnalyticsJS = '', customUmamiAnalyticsJS = '' } = themeConfig.preload ?? {}
 
 // Site Metadata
 const metaTheme = defaultMode === 'dark' ? darkMode : lightMode
@@ -141,50 +140,4 @@ const pageImage = postSlug
 })()
 </script>
 
-<!-- Google Analytics -->
-<!-- Define gtag on window object for proper Partytown forwarding -->
-<!-- See https://github.com/QwikDev/partytown/issues/382 -->
-{googleAnalyticsID && (
-  <>
-    <script
-      is:inline
-      type="text/partytown"
-      src={customGoogleAnalyticsJS || `https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsID}`}
-    />
-    <script
-      is:inline
-      type="text/partytown"
-      define:vars={{
-        googleAnalyticsID,
-        customGoogleAnalyticsJS,
-      }}
-    >
-      window.dataLayer = window.dataLayer || []
-      window.gtag = function () {
-        // eslint-disable-next-line prefer-rest-params
-        dataLayer.push(arguments)
-      }
-      window.gtag('js', new Date())
-
-      if (customGoogleAnalyticsJS) {
-        window.gtag('config', googleAnalyticsID, {
-          transport_url: new URL(customGoogleAnalyticsJS).origin,
-        })
-      }
-      else {
-        window.gtag('config', googleAnalyticsID)
-      }
-    </script>
-  </>
-)}
-
-<!-- Umami Analytics -->
-{umamiAnalyticsID && (
-  <script
-    is:inline
-    type="text/partytown"
-    src={customUmamiAnalyticsJS || 'https://cloud.umami.is/script.js'}
-    data-website-id={umamiAnalyticsID}
-  />
-)}
 </head>

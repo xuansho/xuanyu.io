@@ -46,8 +46,6 @@ export interface ThemeConfig {
       yandex?: string
       baidu?: string
     }
-    googleAnalyticsID?: string
-    umamiAnalyticsID?: string
     folo?: {
       feedID?: string
       userID?: string
@@ -63,7 +61,5 @@ export interface ThemeConfig {
   }
   preload?: {
     imageHostURL?: string
-    customGoogleAnalyticsJS?: string
-    customUmamiAnalyticsJS?: string
   }
 }
