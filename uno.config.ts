@@ -11,6 +11,44 @@ import { themeConfig } from './src/config.ts'
 
 const { light, dark } = themeConfig.color
 
+const systemSansFont = [
+  '"PingFang SC"',
+  '"Microsoft YaHei"',
+  '"Hiragino Sans GB"',
+  '"Noto Sans CJK SC"',
+  '"Noto Sans SC"',
+  '"Source Han Sans SC"',
+  '"WenQuanYi Micro Hei"',
+  'system-ui',
+  '-apple-system',
+  'BlinkMacSystemFont',
+  '"Segoe UI"',
+  'sans-serif',
+]
+
+const systemSerifFont = [
+  '"Songti SC"',
+  '"SimSun"',
+  '"Noto Serif CJK SC"',
+  '"Source Han Serif SC"',
+  'ui-serif',
+  'Georgia',
+  'Cambria',
+  '"Times New Roman"',
+  'Times',
+  'serif',
+]
+
+const systemMonoFont = [
+  '"SFMono-Regular"',
+  'Menlo',
+  'Monaco',
+  'Consolas',
+  '"Liberation Mono"',
+  '"Courier New"',
+  'monospace',
+]
+
 export default defineConfig({
   presets: [
     presetWind3(),
@@ -40,10 +78,12 @@ export default defineConfig({
       caution: 'oklch(50.5% 0.213 27.518 / 0.8)', // red-700
     },
     fontFamily: {
-      title: ['Snell-Black', 'EarlySummer-Subset', 'EarlySummer', 'ui-serif', 'Georgia', 'Cambria', 'Times New Roman', 'Times', 'serif'],
-      navbar: ['STIX-Italic', 'EarlySummer-Subset', 'EarlySummer', 'ui-serif', 'Georgia', 'Cambria', 'Times New Roman', 'Times', 'serif'],
-      time: ['Snell-Bold', 'ui-serif', 'Georgia', 'Cambria', 'Times New Roman', 'Times', 'serif'],
-      serif: ['STIX', 'EarlySummer', 'ui-serif', 'Georgia', 'Cambria', 'Times New Roman', 'Times', 'serif'],
+      sans: systemSansFont,
+      title: systemSansFont,
+      navbar: systemSansFont,
+      time: systemSansFont,
+      serif: systemSerifFont,
+      mono: systemMonoFont,
     },
   },
   rules: [
